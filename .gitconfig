@@ -1,0 +1,13 @@
+[color]
+	ui = true
+[core]
+	autocrlf = input
+	editor = vim
+[diff]
+	tool = meld
+[alias]
+	hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	state = !git fetch origin && git remote show origin && :
+	lga = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
+[push]
+	default = simple
