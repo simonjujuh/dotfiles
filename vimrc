@@ -155,7 +155,7 @@ syntax enable
 "if has("gui_running")
 "set guioptions-=T
 "set guioptions-=e
-"set t_Co=256
+" set t_Co=256
 "set guitablabel=%M\ %t
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -437,6 +437,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'joshdick/onedark.vim'
+Plugin 'rafi/awesome-vim-colorschemes'
 call vundle#end()
 filetype plugin indent on
 
@@ -466,3 +467,11 @@ set clipboard=unnamedplus
 " Set background
 set background=dark
 colorscheme onedark
+
+" From https://github.com/tmux/tmux/issues/1246
+" Enable true color 启用终端24位色
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
