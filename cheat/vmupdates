@@ -1,0 +1,5 @@
+# kali linux vm update
+vboxmanage startvm kali-linux --type headless
+ssh -i /home/$USER/.ssh/id_rsa_kali root@192.168.56.10
+apt update && apt-upgrade -y
+vboxmanage controlvm kali-linux poweroff

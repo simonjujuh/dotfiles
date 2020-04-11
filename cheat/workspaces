@@ -1,0 +1,13 @@
+# workspace creation
+fallocate -l 500MB workspace.db
+sudo cryptsetup luksFormat -c aes-xts-plain -s 256 workspace.db
+sudo cryptsetup luksOpen workspace.db workspace
+sudo mkfs -t ext4 /dev/mapper/workspace
+
+# open workspace
+sudo cryptsetup luksOpen workspace.db workspace
+sudo mount /dev/mapper/workspace /mnt/workspace
+
+# close workspace
+sudo umount /mnt/workspace
+sudo cryptsetup luksClose /dev/mapper/workspace
