@@ -112,8 +112,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
+# -----------------------------------------------------------------------------
 # User settings
+# -----------------------------------------------------------------------------
 
 # enable completion for git commands
 if [ -f ~/.git-completion.bash ]; then
@@ -125,20 +126,19 @@ fi
 # enable bash vi mode
 set -o vi
 
-# share history between panes and windows
-export PROMPT_COMMAND="history -a; history -n"
-
 # cheat configuration
-# enable cheat autocompletion
 if [ -f ~/.cheat-completion.bash ]; then
-  source ~/.cheat-completion.bash
+    source ~/.cheat-completion.bash
 fi
+export CHEAT_USER_DIR="$HOME/.cheat"
+export CHEAT_PATH="/usr/share/cheat:$HOME/.cogcheat"
 
-# rbenv (for metasploit)
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+# Sync history across tmux panes
+# Avoid duplicates
+HISTCONTROL=ignoredups:erasedups  
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
+# After each command, append to the history file and reread it
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
-# cheats
-export CHEAT_DIR="/home/simon/.cheat"
-
+export PATH="$PATH:$HOME/bin"
