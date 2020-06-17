@@ -130,8 +130,8 @@ set -o vi
 if [ -f ~/.cheat-completion.bash ]; then
     source ~/.cheat-completion.bash
 fi
-export CHEAT_USER_DIR="$HOME/.cheat"
-export CHEAT_PATH="/usr/share/cheat:$HOME/.cogcheat"
+#export CHEAT_USER_DIR="$HOME/.cheat"
+#export CHEAT_PATH="/usr/share/cheat:$HOME/.cogcheat"
 
 # Sync history across tmux panes
 # Avoid duplicates
@@ -141,4 +141,6 @@ shopt -s histappend
 # After each command, append to the history file and reread it
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
-export PATH="$PATH:$HOME/bin"
+# Ruby environnment
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"

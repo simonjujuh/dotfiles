@@ -198,6 +198,7 @@ set si "Smart indent
 " Filetypes
 " Shell
 autocmd FileType sh setlocal expandtab shiftwidth=2 tabstop=4 softtabstop=2
+autocmd BufNewFile,BufRead * if expand('%:t') !~ '\.' | set shiftwidth=2 tabstop=4 softtabstop=2 | endif
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -435,14 +436,19 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tomtom/tcomment_vim'
-Plugin 'morhetz/gruvbox'
 Plugin 'joshdick/onedark.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'junegunn/fzf'
+" Plugin 'junegunn/fzf.vim'
 Plugin 'rafi/awesome-vim-colorschemes'
 call vundle#end()
 filetype plugin indent on
 
 " NERDTree keybinding
 map <C-o> :NERDTreeToggle<CR>
+" CtrlP options
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
