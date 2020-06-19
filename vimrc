@@ -468,7 +468,11 @@ inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
 " Copy and paste from clipboard
-set clipboard=unnamedplus
+noremap <leader>y "*y
+noremap <leader>p "*p
+noremap <leader>Y "+y
+noremap <leader>P "+p
+
 
 " Set background
 set background=dark
