@@ -438,6 +438,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vimwiki/vimwiki'
 " Plugin 'junegunn/fzf'
 " Plugin 'junegunn/fzf.vim'
 Plugin 'rafi/awesome-vim-colorschemes'
@@ -489,3 +490,5 @@ endif
 let g:lightline = {
   \ 'colorscheme': 'one',
   \ }
+
+let g:vimwiki_list = [{'path':'~/vimwiki', 'path_html':'~/vimwiki/html/'}]

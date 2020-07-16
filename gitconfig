@@ -13,3 +13,5 @@
 	default = simple
 [difftool]
 	tool = meld
+[user]
+	name = simonjujuh
