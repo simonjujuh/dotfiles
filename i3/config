@@ -166,7 +166,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
 }
 
 # Special system mode
@@ -187,19 +187,40 @@ mode "$mode_system" {
 
 bindsym $mod+Shift+x mode "$mode_system"
 
-# Screen brightness controls
-# bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-# bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
-# Pulse Audio controls
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec sh ~/.config/i3/backlight.sh up
+bindsym XF86MonBrightnessDown exec sh ~/.config/i3/backlight.sh down
+
+# Keyboard brightness control (libnotify-bin)
+bindsym XF86KbdBrightnessUp exec kbdbacklight.sh up
+bindsym XF86KbdBrightnessDown exec kbdbacklight.sh down 
+
+# Pulse Audio controls (requires pactl)
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
-# Media player controls
-# bindsym XF86AudioPlay exec playerctl play-pause
-# bindsym XF86AudioPause exec playerctl play-pause
-# bindsym XF86AudioNext exec playerctl next
-# bindsym XF86AudioPrev exec playerctl previous
 
+# Media player controls (requires playctl)
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# External displays workspaces
+set $dp1 "eDP-1"
+set $dp2 "DP2-2"
+set $dp3 "DP2-3"
+
+workspace $ws1 output $dp1
+workspace $ws2 output $dp2
+workspace $ws3 output $dp2
+workspace $ws4 output $dp2
+workspace $ws5 output $dp2
+workspace $ws6 output $dp3
+workspace $ws7 output $dp3
+workspace $ws8 output $dp3
+workspace $ws9 output $dp3
+#
 # Rofi keybindings
 bindsym $mod+d exec rofi -show run 
 bindsym $mod+Shift+d exec rofi -show window
@@ -208,7 +229,7 @@ bindsym $mod+Shift+d exec rofi -show window
 bindsym Print exec flameshot gui --path /home/simon/screenshots
 
 # Execs
-exec --no-startup-id compton -f
+exec_always --no-startup-id setxkbmap -option caps:swapescape
 exec --no-startup-id nm-applet --sm-disable
-exec_always setxkbmap -option caps:swapescape
-exec_always feh --bg-scale config/wallpapers/wallpaper.jpg
+# exec --no-startup-id compton -f
+exec_always feh --bg-scale /home/simon/config/wallpaper/mountain3.jpg
