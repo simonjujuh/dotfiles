@@ -16,6 +16,5 @@ ln -sf ${BASEDIR}/vimrc ~/.vimrc
 ln -sf ${BASEDIR}/bashrc ~/.bashrc
 
 # cheat
-# ln -sf ${BASEDIR}/cheat-completion.bash ~/.cheat-completion.bash
-# ln -sf ${BASEDIR}/cheat ~/.cheat
+ln -sf ${BASEDIR}/cheat.bash ~/.cheat.bash
 

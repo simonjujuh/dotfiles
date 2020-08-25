@@ -147,3 +147,27 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; h
 
 # Kbd remap
 setxkbmap -option caps:swapescape
+
+# Tools completions
+if [ -f /opt/pentest/pwcracking/john/run/john.bash_completion ]; then
+  source /opt/pentest/pwcracking/john/run/john.bash_completion
+fi
+
+if [ -f ~/.cheat.bash ]; then
+  source ~/.cheat.bash
+fi
+
+# util aliases
+alias diff='colordiff'
+alias mnt='mount | grep -E ^/dev | column -t'
+alias pip='pip3'
+alias cheat='/opt/utils/cheat/cheat'
+
+# util functions
+mkencarchive() {
+  archive=${1%/}
+  echo "[+] archive ${archive}.7z will be created..."
+  7z a -p -mx=9 -mhe -t7z "${archive}.7z" "${archive}"
+}
+
+
