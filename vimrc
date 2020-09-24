@@ -437,11 +437,9 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'joshdick/onedark.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'vimwiki/vimwiki'
-" Plugin 'junegunn/fzf'
-" Plugin 'junegunn/fzf.vim'
 Plugin 'rafi/awesome-vim-colorschemes'
+Plugin 'kien/ctrlp.vim'
+Plugin 'fifi2/gtd.vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -450,6 +448,10 @@ map <C-o> :NERDTreeToggle<CR>
 " CtrlP options
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+noremap <C-a> :CtrlP ~<CR>
+
+let g:gtd#dir = '/home/simon/notes'
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

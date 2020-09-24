@@ -141,27 +141,12 @@ shopt -s histappend
 # After each command, append to the history file and reread it
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
-# Ruby environnment
-#export PATH="$HOME/.rbenv/bin:$PATH"
-#eval "$(rbenv init -)"
-
-# Kbd remap
-setxkbmap -option caps:swapescape
-
-# Tools completions
+# Add john completion
 if [ -f /opt/pentest/pwcracking/john/run/john.bash_completion ]; then
   source /opt/pentest/pwcracking/john/run/john.bash_completion
 fi
-
-if [ -f ~/.cheat.bash ]; then
-  source ~/.cheat.bash
-fi
-
-# util aliases
-alias diff='colordiff'
-alias mnt='mount | grep -E ^/dev | column -t'
-alias pip='pip3'
-alias cheat='/opt/utils/cheat/cheat'
+# Add cheat completion
+[ -f ~/.cheat.bash ] && source ~/.cheat.bash
 
 # util functions
 mkencarchive() {
@@ -170,4 +155,14 @@ mkencarchive() {
   7z a -p -mx=9 -mhe -t7z "${archive}.7z" "${archive}"
 }
 
-
+n() {
+  notefile=/home/simon/crypt/DUMP
+  if [ ! -e "${notefile}" ]; then
+    echo "${notefile}: No such file or directory"
+    # exit 1
+  else
+    echo "" >> ${notefile}
+    echo "[$(date)]" >> ${notefile}
+    gvim ${notefile}
+  fi
+}

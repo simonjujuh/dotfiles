@@ -18,3 +18,7 @@ ln -sf ${BASEDIR}/bashrc ~/.bashrc
 # cheat
 ln -sf ${BASEDIR}/cheat.bash ~/.cheat.bash
 
+# i3 setup
+ln -sf ${BASEDIR}/i3/config ~/.config/i3/config
+ln -sf ${BASEDIR}/rofi/config ~/.config/rofi/config
+ln -sf ${BASEDIR}/compton.conf ~/.config/compton.conf
