@@ -248,6 +248,7 @@ bindsym $mod+b exec bash -c '/usr/bin/firefox -P'
 
 # Toggle cherrytree note taking
 bindsym $mod+n exec bash -c '/home/simon/.config/i3/scripts/toggle_cherrytree.sh'
+bindsym $mod+Shift+n exec bash -c '/home/simon/.config/i3/scripts/toggle_joplin.sh'
 
 # Sceenshot tool
 bindsym --release Print exec flameshot gui --path ~/Pictures/screenshots
@@ -262,7 +263,7 @@ exec_always setxkbmap -option caps:swapescape
 exec_always --no-startup-id xset b off 
 
 # Start network manager applet
-exec --no-startup-id nm-applet
+exec_always --no-startup-id nm-applet
 
 # Start composite manager compton
-exec --no-startup-id compton -b --config /home/simon/.config/compton.conf
+exec_always --no-startup-id compton -b --config /home/simon/.config/compton.conf
