@@ -438,21 +438,11 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'rafi/awesome-vim-colorschemes'
-Plugin 'kien/ctrlp.vim'
-Plugin 'fifi2/gtd.vim'
 call vundle#end()
 filetype plugin indent on
 
 " NERDTree keybinding
 map <C-o> :NERDTreeToggle<CR>
-" CtrlP options
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-noremap <C-a> :CtrlP ~<CR>
-
-let g:gtd#dir = '/home/simon/notes'
-
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => User settings
@@ -492,5 +482,3 @@ endif
 let g:lightline = {
   \ 'colorscheme': 'one',
   \ }
-
-let g:vimwiki_list = [{'path':'~/vimwiki', 'path_html':'~/vimwiki/html/'}]

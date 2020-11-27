@@ -59,7 +59,7 @@ fi
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -126,13 +126,6 @@ fi
 # enable bash vi mode
 set -o vi
 
-# cheat configuration
-if [ -f ~/.cheat-completion.bash ]; then
-    source ~/.cheat-completion.bash
-fi
-#export CHEAT_USER_DIR="$HOME/.cheat"
-#export CHEAT_PATH="/usr/share/cheat:$HOME/.cogcheat"
-
 # Sync history across tmux panes
 # Avoid duplicates
 HISTCONTROL=ignoredups:erasedups  
@@ -145,24 +138,7 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; h
 if [ -f /opt/pentest/pwcracking/john/run/john.bash_completion ]; then
   source /opt/pentest/pwcracking/john/run/john.bash_completion
 fi
-# Add cheat completion
+# Add completion
 [ -f ~/.cheat.bash ] && source ~/.cheat.bash
-
-# util functions
-mkencarchive() {
-  archive=${1%/}
-  echo "[+] archive ${archive}.7z will be created..."
-  7z a -p -mx=9 -mhe -t7z "${archive}.7z" "${archive}"
-}
-
-n() {
-  notefile=/home/simon/crypt/DUMP
-  if [ ! -e "${notefile}" ]; then
-    echo "${notefile}: No such file or directory"
-    # exit 1
-  else
-    echo "" >> ${notefile}
-    echo "[$(date)]" >> ${notefile}
-    gvim ${notefile}
-  fi
-}
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

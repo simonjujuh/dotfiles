@@ -13,8 +13,6 @@
 	default = simple
 [difftool]
 	tool = meld
-[user]
-	name = simonjujuh
 [credential]
     helper = cache --timeout=3600
 [http]
