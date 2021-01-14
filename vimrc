@@ -438,11 +438,18 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'rafi/awesome-vim-colorschemes'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 call vundle#end()
 filetype plugin indent on
 
 " NERDTree keybinding
 map <C-o> :NERDTreeToggle<CR>
+
+" FZF remap
+nnoremap <silent> <C-f> :Files<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => User settings
@@ -461,11 +468,13 @@ inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
 " Copy and paste from clipboard
+" use <leader>pp to swith paste mode
+" *: primary
 noremap <leader>y "*y
 noremap <leader>p "*p
+" +: system
 noremap <leader>Y "+y
 noremap <leader>P "+p
-
 
 " Set background
 set background=dark
