@@ -145,7 +145,10 @@ bindsym $mod+Shift+agrave move container to workspace $ws10
 
 # Specific for_window config
 for_window [class="Hamster" instance="org.gnome.Hamster.GUI"] floating enable
+for_window [class="Pidgin" instance="Pidgin"] floating enable
 for_window [class="burp-StartBurp" instance="burp-StartBurp"] floating enable
+for_window [class="Zim" instance="zim"] floating enable
+for_window [class="Cherrytree" instance="cherrytree"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -247,11 +250,12 @@ bindsym $mod+g exec rofi -show window
 bindsym $mod+b exec bash -c '/usr/bin/firefox -P'
 
 # Toggle cherrytree note taking
-bindsym $mod+n exec bash -c '/home/simon/.config/i3/scripts/toggle_cherrytree.sh'
-bindsym $mod+Shift+n exec bash -c '/home/simon/.config/i3/scripts/toggle_joplin.sh'
+bindsym $mod+i exec bash -c '/home/simon/.config/i3/scripts/toggle_zim.sh'
+bindsym $mod+o exec bash -c '/home/simon/.config/i3/scripts/toggle_cherrytree.sh'
+bindsym $mod+p exec bash -c '/home/simon/.config/i3/scripts/toggle_joplin.sh'
 
 # Sceenshot tool
-bindsym --release Print exec flameshot gui --path ~/Pictures/screenshots
+bindsym --release Print exec flameshot gui 
 
 # Setup wallpaper
 exec_always feh --bg-scale /home/simon/config/wallpaper/xerus_wallpaper.jpg 
