@@ -131,7 +131,7 @@ set tm=500
 " Folding
 
 " Add a bit extra margin to the left
-set foldcolumn=1
+" set foldcolumn=1
 " Set fold method and marker
 set foldmethod=marker
 set foldmarker={{,}}
@@ -436,12 +436,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tomtom/tcomment_vim'
-Plugin 'joshdick/onedark.vim'
-Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plugin 'joshdick/onedark.vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -456,6 +453,7 @@ nnoremap <silent> <C-f> :Files<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Show line number
 set number
+set relativenumber
 
 " Disable arrow keys
 noremap <Up> <NOP>
@@ -479,7 +477,14 @@ noremap <leader>P "+p
 " Set background
 set background=dark
 colorscheme onedark
+let g:lightline = {
+            \ 'colorscheme': 'one',
+            \ }
 
+" For onedark theme
+" Set background
+" set background=dark
+" colorscheme onedark
 " From https://github.com/tmux/tmux/issues/1246
 " Enable true color 启用终端24位色
 if exists('+termguicolors')
@@ -487,7 +492,3 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-
-let g:lightline = {
-  \ 'colorscheme': 'one',
-  \ }

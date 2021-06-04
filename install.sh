@@ -12,8 +12,10 @@ ln -sf ${BASEDIR}/tmux.conf ~/.tmux.conf
 # vim
 ln -sf ${BASEDIR}/vimrc ~/.vimrc
 
-# bashrc
+# shells
 ln -sf ${BASEDIR}/bashrc ~/.bashrc
+ln -sf ${BASEDIR}/zshrc ~/.zshrc
+ln -sf ${BASEDIR}/zsh_aliases ~/.zsh_aliases
 
 # cheat
 ln -sf ${BASEDIR}/cheat.bash ~/.cheat.bash
