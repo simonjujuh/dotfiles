@@ -70,7 +70,7 @@ ZSH_THEME="gentoo"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-z john cheat)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,29 +107,6 @@ set -o vi
 # Share command history between tmux panes
 setopt incappendhistory
 setopt sharehistory
-
 # autoload -Uz compinit
 # compinit -u
-
-# Load shell dependencies
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
-
-export PATH="$PATH"
-
-# Logging function
-# SESSLOG="${SESSLOG:-false}"
-# if [ $SESSLOG = true ]; then
-#     echo "Terminal session logging enabled, session will be saved on exit"
-#     # PROMPT='%{$fg[yellow]%}[%D{%f/%m/%y} %D{%r %Z %Y}] '$PROMPT
-#     trap ~/.tmux/plugins/tmux-logging/scripts/save_complete_history.sh EXIT
-# else
-#     echo "Terminal session logging disabled, use \`tmux setenv SESSLOG true\` to enable it"
-# fi
-
-# Created by `userpath` on 2021-01-28 15:17:43
-# Note: already in .profile
-# export PATH="$PATH:/home/simon/.local/bin"
-
-# Swap escape with Caps
-setxkbmap -layout fr -option 'caps:swapescape'
+setxkbmap -option caps:swapescape

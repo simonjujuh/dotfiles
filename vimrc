@@ -424,7 +424,6 @@ endfunction
 "   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 "endif
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -436,8 +435,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tomtom/tcomment_vim'
-Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plugin 'junegunn/fzf.vim'
 Plugin 'joshdick/onedark.vim'
 call vundle#end()
 filetype plugin indent on
