@@ -8,7 +8,7 @@ export ZSH="/home/simon/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="gentoo"
+ZSH_THEME="frisk"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -103,10 +103,9 @@ setopt prompt_subst
 
 # Set configuration options
 # Set vi mode for keyboard shortcuts
-set -o vi
+# set -o vi
 # Share command history between tmux panes
 setopt incappendhistory
 setopt sharehistory
 # autoload -Uz compinit
 # compinit -u
-setxkbmap -option caps:swapescape
