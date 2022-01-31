@@ -14,6 +14,7 @@ ln -sf ${BASEDIR}/vimrc ~/.vimrc
 # shells
 ln -sf ${BASEDIR}/bashrc ~/.bashrc
 ln -sf ${BASEDIR}/zshrc ~/.zshrc
+ln -sf ${BASEDIR}/cheat.zsh ~/.cheat.zsh
 
 # misc
 echo "[*] Installation done"
@@ -22,4 +23,6 @@ echo "    - https://ohmyz.sh/"
 echo "    - https://github.com/tmux-plugins/tpm"
 echo "    - https://github.com/tmux-plugins/tmux-logging"
 echo "    - https://github.com/VundleVim/Vundle.vim (and call PluginInstall)"
+echo "    - https://github.com/junegunn/fzf"
+echo "    - https://github.com/cheat/cheat"
 echo ""

@@ -109,3 +109,11 @@ setopt incappendhistory
 setopt sharehistory
 # autoload -Uz compinit
 # compinit -u
+
+alias ll='ls -lF --group-directories-first'
+alias la='ls -A --group-directories-first'
+alias l='ls -CF --group-directories-first'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export CHEAT_USE_FZF=true
+[ -f ~/.cheat.zsh ] && source ~/.cheat.zsh
