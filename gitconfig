@@ -17,3 +17,8 @@
     helper = cache --timeout=3600
 [http]
     postBuffer = 524288000
+[pull]
+	rebase = true
+	ff = only
+[init]
+	defaultBranch = master
