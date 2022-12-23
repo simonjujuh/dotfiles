@@ -101,23 +101,17 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 setopt prompt_subst
 
-# Set configuration options
-# Set vi mode for keyboard shortcuts
-# set -o vi
 # Share command history between tmux panes
 setopt incappendhistory
 setopt sharehistory
+
 # autoload -Uz compinit
 # compinit -u
 
+# Useful aliases
 alias ll='ls -lF --group-directories-first'
 alias la='ls -A --group-directories-first'
 alias l='ls -CF --group-directories-first'
-
-# Created by `pipx` on 2022-06-15 08:20:08
-export PATH="$PATH:/home/simon/.local/bin"
-# Created for golang
-export PATH="$PATH:/usr/local/go/bin"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export CHEAT_USE_FZF=true
@@ -130,3 +124,9 @@ tmuxcd() {
   [ -n "$TMUX" ] && tmux set-environment -g PWD $PWD
 }
 alias cd=tmuxcd
+alias clear='clear -x'
+
+# Created by `pipx` on 2022-06-15 08:20:08
+export PATH="$PATH:/home/simon/.local/bin"
+# Created for golang
+export PATH="$PATH:$HOME/go/bin"
