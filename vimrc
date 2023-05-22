@@ -473,7 +473,7 @@ noremap <leader>P "+p
 
 " Set background
 set background=dark
-colorscheme onedark
+silent! colorscheme onedark
 let g:lightline = {
             \ 'colorscheme': 'one',
             \ }

@@ -70,7 +70,7 @@ ZSH_THEME="frisk"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z git)
+plugins=(z git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,8 +114,8 @@ alias la='ls -A --group-directories-first'
 alias l='ls -CF --group-directories-first'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export CHEAT_USE_FZF=true
 [ -f ~/.cheat.zsh ] && source ~/.cheat.zsh
+export CHEAT_USE_FZF=true
 
 # Tmux snippets
 # enable logging
@@ -123,10 +123,11 @@ tmuxcd() {
   cd "$@"
   [ -n "$TMUX" ] && tmux set-environment -g PWD $PWD
 }
+
 alias cd=tmuxcd
 alias clear='clear -x'
 
 # Created by `pipx` on 2022-06-15 08:20:08
 export PATH="$PATH:/home/simon/.local/bin"
 # Created for golang
-export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
