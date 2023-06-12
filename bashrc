@@ -140,5 +140,5 @@ if [ -f /opt/pentest/pwcracking/john/run/john.bash_completion ]; then
 fi
 # Add completion
 [ -f ~/.cheat.bash ] && source ~/.cheat.bash
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+. "$HOME/.cargo/env"
