@@ -1,0 +1,19 @@
+alias trilium-start='echo "Starting server on http://$(cat ~/.local/share/trilium-data/config.ini | grep host= | cut -d = -f 2):$(cat ~/.local/share/trilium-data/config.ini | grep port= | cut -d = -f 2)/" && nvm use 16 && TRILIUM_ENV=dev nohup node /opt/tools/trilium/src/www &> ~/.trilium.nohup.out &'
+
+function trilium-backup() {
+  [ -d /workspace/trilium ] || mkdir /workspace/trilium
+  cp -r $HOME/.local/share/trilium-data /workspace/trilium/trilium-data_"$(date +%s).backup"
+}
+
+alias burl='curl -x 127.0.0.1:8080 -k'
+
+function rand_b64() {
+  len=${1:-20}
+  openssl rand -base64 $len
+}
+
+function rand_hex() {
+  len=${1:-20}
+  openssl rand -hex $len
+}
+

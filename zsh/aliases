@@ -1,0 +1,57 @@
+alias burl='curl -x 127.0.0.1:8080 -k'
+alias kit='cd ~/.exegol/my-resources/kit'
+
+function htb-setup {
+  boxname="$1"
+  echo "[*] Create '$boxname' directory"
+  mkdir ~/CTF/htb/"$boxname"
+  echo "[*] Open vscode on '$boxname'"
+  code ~/CTF/htb/"$boxname"
+  echo "[*] Start exegol image for '$boxname'"
+  exegol start "$boxname" full --quiet --shell zsh --env TERM=screen-256color --update-fs -w ~/CTF/htb/"$boxname" --log  
+}
+
+function burpsuite {
+  latest_jar=$(ls -tl ~/.exegol/my-resources/tools/burpsuitepro/burpsuite_pro_* | head -n1 | awk '{ print $NF }')
+  java -Xmx4G -jar "$latest_jar"
+}
+
+alias dockershell="docker run --rm -i -t --entrypoint=/bin/bash"
+alias dockershellsh="docker run --rm -i -t --entrypoint=/bin/sh"
+
+function dockershellhere() {
+  dirname=${PWD##*/}
+  docker run --rm -it --entrypoint=/bin/bash -v `pwd`:/${dirname} -w /${dirname} "$@"
+}
+function dockershellshhere() {
+  dirname=${PWD##*/}
+  docker run --rm -it --entrypoint=/bin/sh -v `pwd`:/${dirname} -w /${dirname} "$@"
+}
+
+function rand_b64() {
+  len=${1:-20}
+  openssl rand -base64 $len
+}
+
+function rand_hex() {
+  len=${1:-20}
+  openssl rand -hex $len
+}
+
+function exegolfull() {
+  if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "[!] Please provide a container name and a workspace path"
+    echo "[*] Usage: exegolfull [name] [path]"
+  else
+    exegol start "$1" full --quiet --shell zsh --env TERM=screen-256color --update-fs -w "$2" --log
+  fi
+}
+
+function exegolfullhere() {
+  if [ -z "$1" ]; then
+    echo "[!] Please provide a container name"
+    echo "[*] Usage: exegolfullhere [name]"
+  else
+    exegol start "$1" full --quiet --shell zsh --env TERM=screen-256color --update-fs -w $PWD --log
+  fi
+}

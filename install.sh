@@ -42,6 +42,8 @@ rm -rf ~/.vimrc
 info "Linking bash and zsh configuration files"
 ln -sf ${BASEDIR}/bash/bashrc ~/.bashrc
 ln -sf ${BASEDIR}/zsh/zshrc ~/.zshrc
+ln -sf ${BASEDIR}/zsh/aliases ~/.aliases
+ln -sf ${BASEDIR}/zsh/cheat.zsh ~/.cheat.zsh
 
 # git
 info "Linking git configuration file"
@@ -50,6 +52,8 @@ ln -sf ${BASEDIR}/git/gitconfig ~/.gitconfig
 # tmux
 info "Linking tmux configuration file"
 ln -sf ${BASEDIR}/tmux/tmux.conf ~/.tmux.conf
+# mkdir ~/.tmux.d/
+# ln -sf ${BASEDIR}/tmux/tmux-switch-pane.sh ~/.tmux.d/tmux-switch-pane.sh
 
 # vim
 info "Linking vim configuration file and installing plugins"

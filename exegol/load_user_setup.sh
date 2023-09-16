@@ -10,3 +10,7 @@ set -e
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
+
+ln -sf /opt/my-resources /lopt
+
+chsh -s /bin/zsh
