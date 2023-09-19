@@ -126,13 +126,17 @@ fi
 [ -f ~/.cheat.zsh ] && source ~/.cheat.zsh
 [ -f ~/.aliases ] && source ~/.aliases
 
-# Tmux custom function
-tmuxcd() {
-  cd "$@"
-  [ -n "$TMUX" ] && tmux set-environment -g PWD $PWD
+# Tmux custom function (https://github.com/tmux/tmux/issues/1282)
+function set_tmux_pwd() {
+    [ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD"
+    return 0
 }
-
-alias cd=tmuxcd
+function tmux_cd() {
+    \cd "$@"
+    set_tmux_pwd
+}
+set_tmux_pwd
+alias cd=tmux_cd
 
 alias clear='clear -x'
 
@@ -140,7 +144,10 @@ alias clear='clear -x'
 export PATH="$PATH:/home/simon/.local/bin"
 # Created for golang
 export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
-
-# Aliases for audit management
+# Audit-tools
 alias anew='/opt/tools/audit-tools/scripts/audit-new.py'
 alias aarch='/opt/tools/audit-tools/scripts/audit-archive.py'
+# Fuzzy finding
+alias fuz='/opt/tools/utils/fuz/fuz'
+alias fz='/opt/tools/utils/fuz/fuz --path "/home/simon/Desktop/notebook/pages/"'
+alias fze='/opt/tools/utils/fuz/fuz --path "/home/simon/Desktop/notebook/pages/ --edit"'
