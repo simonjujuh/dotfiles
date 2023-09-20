@@ -39,6 +39,7 @@ rm -rf ~/.exegol/my-resources/setup/zsh/zshrc
 # Shell
 info "Linking bash and zsh configuration files"
 cp ${BASEDIR}/zsh/zshrc_exegol ~/.exegol/my-resources/setup/zsh/zshrc
+cp ${BASEDIR}/zsh/aliases_exegol ~/.exegol/my-resources/setup/zsh/aliases
 
 # Tmux
 info "Linking tmux configuration file"
@@ -46,7 +47,7 @@ cp ${BASEDIR}/tmux/tmux.conf ~/.exegol/my-resources/setup/tmux/tmux.conf
 
 # vim
 info "Linking vim configuration file and installing plugins"
-cp ${BASEDIR}/tmux/tmux.conf ~/.exegol/my-resources/setup/vim/vimrc
+cp ${BASEDIR}/vim/vimrc ~/.exegol/my-resources/setup/vim/vimrc
 
 # exegol
 info "Linking exegol setup script"

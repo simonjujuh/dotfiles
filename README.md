@@ -22,5 +22,6 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ## Link configuration files
 
 ```bash
-./install.zsh
+./install.sh
+./exegol_install.sh
 ```

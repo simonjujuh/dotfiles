@@ -19,12 +19,17 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Tmux custom function
-tmuxcd() {
-  cd "$@"
-  [ -n "$TMUX" ] && tmux set-environment -g PWD $PWD
+# Tmux custom function (https://github.com/tmux/tmux/issues/1282)
+function set_tmux_pwd() {
+    [ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD"
+    return 0
 }
-
-alias cd=tmuxcd
+function tmux_cd() {
+    \cd "$@"
+    set_tmux_pwd
+}
+set_tmux_pwd
+alias cd=tmux_cd
 
 alias clear='clear -x'
 
