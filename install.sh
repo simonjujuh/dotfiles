@@ -32,16 +32,16 @@ BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # macOS dependencies
 if [[ "$(uname)" == "Darwin" ]]; then
-    brew install tmux vim git
+    brew install tmux vim git curl
 # Linux dependencies
 else
-    sudo apt install -y vim tmux git xsel
+    sudo apt install -y vim tmux git xsel curl
 fi
 
 # Install oh-my-zsh
 info "Installing oh-my-zsh"
 rm -rf ~/.oh-my-zsh
-yes | sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --quiet --depth 1 https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Install FZF
