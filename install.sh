@@ -67,6 +67,7 @@ ln -sf ${BASEDIR}/git/gitconfig ~/.gitconfig
 # Tmux
 info "Linking tmux configuration file"
 ln -sf ${BASEDIR}/tmux/tmux.conf ~/.tmux.conf
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 info "Do not forget to run tmux-plugins installation"
 
 # Vim setup
