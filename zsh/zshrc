@@ -124,5 +124,6 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
+[ -f /opt/utils/host_aliases.sh ] && source /opt/utils/host_aliases.sh
 
 alias clear='clear -x'

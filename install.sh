@@ -58,6 +58,7 @@ ln -sf ${BASEDIR}/bash/bashrc ~/.bashrc
 info "Linking zsh configuration file"
 rm -rf ~/.zshrc
 ln -sf ${BASEDIR}/zsh/zshrc ~/.zshrc
+ln -sf ${BASEDIR}/zsh/zsh_aliases ~/.zsh_aliases
 
 # Git
 info "Linking git configuration file"
@@ -66,6 +67,7 @@ ln -sf ${BASEDIR}/git/gitconfig ~/.gitconfig
 # Tmux
 info "Linking tmux configuration file"
 ln -sf ${BASEDIR}/tmux/tmux.conf ~/.tmux.conf
+info "Do not forget to run tmux-plugins installation"
 
 # Vim setup
 info "Linking vim configuration file and installing plugins"
